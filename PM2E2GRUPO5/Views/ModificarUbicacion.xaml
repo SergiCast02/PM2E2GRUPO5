@@ -11,6 +11,7 @@
                 <forms:SignaturePadView 
                 x:Name="PadView"
                 StrokeWidth="3"
+                    CaptionText=""
                 WidthRequest="300"
                 HeightRequest="300"
                 VerticalOptions="Center"

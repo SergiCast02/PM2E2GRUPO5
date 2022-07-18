@@ -37,6 +37,8 @@
             <StackLayout BackgroundColor="Black" HorizontalOptions="Center" Padding="1">
                 <forms:SignaturePadView 
                 x:Name="PadView"
+                    CaptionText=""
+                    
                 StrokeWidth="3"
                 WidthRequest="300"
                 HeightRequest="300"

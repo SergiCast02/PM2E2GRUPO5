@@ -263,7 +263,7 @@ namespace PM2E2GRUPO5.Views
 
                     await SitioController.CreateSite(sitio);
                     await DisplayAlert("Aviso", "Sitio adicionado con éxito", "OK");
-                    PadView.Strokes = null;
+                    PadView.Clear();
                     descripcion.Text = null;
 
                 }
