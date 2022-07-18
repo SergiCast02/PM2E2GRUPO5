@@ -10,7 +10,8 @@ namespace PM2E2GRUPO5
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            //MainPage = new MainPage();
+            MainPage = new NavigationPage(new Views.NuevaUbicacion());
         }
 
         protected override void OnStart()

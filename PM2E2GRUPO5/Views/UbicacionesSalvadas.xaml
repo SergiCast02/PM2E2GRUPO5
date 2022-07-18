@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PM2E2GRUPO5.Views.UbicacionesSalvadas">
+
+    <ScrollView>
+
+        <StackLayout Margin="15,15,15,15">
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Spacing="0">
+                <Frame Padding="0">
+                    <Label Text="Nueva Ubicación"
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="White"
+                       TextColor="#86b7f3"
+                       FontAttributes="Bold"
+                       Padding="10"/>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="nuevaubicacion_Tapped"></TapGestureRecognizer>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
+                <Frame Padding="0">
+                    <Label Text="Ubicaciones Salvadas"
+                       
+                       HorizontalOptions="CenterAndExpand"
+                       BackgroundColor="#86b7f3"
+                       TextColor="White"
+                       FontAttributes="Bold"
+                       Padding="10"/>
+                </Frame>
+            </StackLayout>
+
+
+
+        </StackLayout>
+
+    </ScrollView>
+</ContentPage>
