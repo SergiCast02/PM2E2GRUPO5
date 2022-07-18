@@ -13,6 +13,7 @@ using PM2E2GRUPO5.Models;
 using SignaturePad.Forms;
 using System.IO;
 using Plugin.AudioRecorder;
+using Nancy.Json;
 
 namespace PM2E2GRUPO5.Views
 {
@@ -168,6 +169,20 @@ namespace PM2E2GRUPO5.Views
             {
                 byte[] ImageBytes = null;
                 byte[] AudioBytes = null;
+                var firma = PadView.Strokes;
+/*
+                List<string> list = new List<string>();
+
+                foreach (var item in firma)
+                {
+                    list.Add(item.ToString());
+                }
+                foreach (var item in list)
+                {
+                    Console.WriteLine(item);
+                }
+                Console.ReadLine();*/
+
                 //obtenemos la firma
                 try
                 {
@@ -214,16 +229,50 @@ namespace PM2E2GRUPO5.Views
                     return;
                 }
 
-                Sitio sitio = new Sitio
+                try
                 {
-                    Descripcion = descripcion.Text,
-                    Latitud = latitud.Text,
-                    Longitud = longitud.Text,
-                    FirmaDigital = ImageBytes,
-                    AudioFile = AudioBytes
-                };
+                    byte[] a;
+                    var serializer = new JavaScriptSerializer();
 
-                await SitioController.CreateSite(sitio);
+                    //var b = firma.Count();
+                    //var b = firma.First(c => c. == id).Name;
+                    var b = serializer.Serialize(firma);
+
+                    /*for (int i = 0; i < firma.Count(); i++)
+                    {
+                        for (int j = 0; i < 10; i++)
+                        {
+                            for (int k = 0; k < 10; k++)
+                            {
+
+                            }
+                        }
+                    }*/
+
+                    a = null;
+
+                    Sitio sitio = new Sitio
+                    {
+                        Descripcion = descripcion.Text,
+                        Latitud = latitud.Text,
+                        Longitud = longitud.Text,
+                        FirmaDigital = ImageBytes,
+                        AudioFile = AudioBytes,
+                        firma = b
+                    };
+
+                    await SitioController.CreateSite(sitio);
+                    await DisplayAlert("Aviso", "Sitio adicionado con éxito", "OK");
+                    PadView.Strokes = null;
+                    descripcion.Text = null;
+
+                }
+                catch (Exception error)
+                {
+                    await DisplayAlert("Aviso", ""+error, "OK");
+                }
+
+                
             }
         }
 

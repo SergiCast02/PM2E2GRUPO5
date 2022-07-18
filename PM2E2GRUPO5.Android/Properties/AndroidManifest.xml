@@ -5,7 +5,8 @@
     <application android:label="PM2E2GRUPO5.Android"
 				 android:theme="@style/MainTheme"
 				 android:usesCleartextTraffic="true">
-		
+
+		<meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDBk0Aayb6w3B4FRvt6GVQJbG5Xva9tPAw" />
 	</application>
 	
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>

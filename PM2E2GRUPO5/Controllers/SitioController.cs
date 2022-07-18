@@ -41,7 +41,7 @@ namespace PM2E2GRUPO5.Controllers
             try
             {
                 var uri = new Uri(URL_SITIOS + "eliminarsitio.php?id=" + id);
-                var result = await client.DeleteAsync(uri);
+                var result = await client.GetAsync(uri);
                 if (result.IsSuccessStatusCode)
                 {
                     return true;
@@ -83,7 +83,8 @@ namespace PM2E2GRUPO5.Controllers
                 Uri requestUri = new Uri(URL_SITIOS + "actualizarsitio.php");
                 var jsonObject = JsonConvert.SerializeObject(sitio);
                 var content = new StringContent(jsonObject, Encoding.UTF8, "application/json");
-                var response = await client.PutAsync(requestUri, content);
+                //var response = await client.PutAsync(requestUri, content);
+                var response = await client.PostAsync(requestUri, content);
                 if (response.IsSuccessStatusCode)
                 {
                     return true;

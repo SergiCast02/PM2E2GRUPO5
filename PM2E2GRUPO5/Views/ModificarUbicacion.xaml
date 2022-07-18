@@ -19,11 +19,11 @@
 
             <StackLayout Orientation="Vertical" Margin="25,25,25,0">
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Latitud actual:"></Label>
+                    <Label Text="Latitud:"></Label>
                     <Entry x:Name="latitud" IsReadOnly="True"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
-                    <Label Text="Longitud actual:"></Label>
+                    <Label Text="Longitud:"></Label>
                     <Entry x:Name="longitud" IsReadOnly="True"></Entry>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">

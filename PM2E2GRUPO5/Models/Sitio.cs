@@ -19,5 +19,7 @@ namespace PM2E2GRUPO5.Models
         public byte[] FirmaDigital { get; set; }
         [JsonProperty("audio")]
         public byte[] AudioFile { get; set; }
+        [JsonProperty("trazado")]
+        public string firma { get; set; }
     }
 }

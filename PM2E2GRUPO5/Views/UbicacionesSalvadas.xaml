@@ -38,6 +38,14 @@
                 </Frame>
             </StackLayout>
 
+            <!--
+            <Image x:Name="gifcargando" HorizontalOptions="Center" HeightRequest="100" Source="Loading.gif" IsAnimationPlaying="True"></Image>
+            -->
+            
+            <StackLayout Margin="0,10,0,10" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label IsVisible="True" HorizontalOptions="Center" x:Name="lblelementos" Text="" TextColor="#86b7f3" FontAttributes="Bold" FontSize="Large"/>
+            </StackLayout>
+            
             <ScrollView>
                 <ListView x:Name="ListaSitios" ItemTapped="ListaSitios_ItemTapped">
                     <ListView.ItemTemplate>
@@ -65,7 +73,7 @@
                         TextColor="White"
                         FontAttributes="Bold"
                         FontSize="Caption"
-                        HeightRequest="40"
+                        HeightRequest="60"
                         CornerRadius="40"
                         IsEnabled="False"/>
 

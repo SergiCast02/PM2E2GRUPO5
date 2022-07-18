@@ -21,14 +21,33 @@ namespace PM2E2GRUPO5.Views
         public UbicacionesSalvadas()
         {
             InitializeComponent();
-            
+        }
+
+        private async void recargar()
+        {
+            lblelementos.Text = "cargando...";
+            /*gifcargando.Source = "Loading.gif";*/
+            ListaSitios.ItemsSource = null;
+            elemento = null;
+            btnactualizar.IsEnabled = false;
+            btnescucharaudio.IsEnabled = false;
+            btnvermapa.IsEnabled = false;
+            ListaSitios.ItemsSource = await SitioController.GetAllSite();
+
+            int c = 0;
+            foreach (var item in ListaSitios.ItemsSource)
+            {
+                c++;
+            }
+            lblelementos.Text = "Elementos Encontrados: " + c;
+            /*gifcargando.Source = null;*/
+            /*lblelementos.IsVisible = true;*/
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            ListaSitios.ItemsSource = await SitioController.GetAllSite();
-            elemento = null;
+            recargar();
         }
 
         private async void nuevaubicacion_Tapped(object sender, EventArgs e)
@@ -46,15 +65,19 @@ namespace PM2E2GRUPO5.Views
 
         private void btnactualizar_Clicked(object sender, EventArgs e)
         {
-            var secondPage = new ModificarUbicacion();
             var sitio = (Sitio)elemento.Item;
+            Navigation.PushAsync(new ModificarUbicacion(sitio));
+            
+            /*var secondPage = new ModificarUbicacion(sitio);
+            
             secondPage.BindingContext = new { sitio };
-            Navigation.PushAsync(secondPage);
+            Navigation.PushAsync(secondPage);*/
         }
 
-        private void btnvermapa_Clicked(object sender, EventArgs e)
+        private async void btnvermapa_Clicked(object sender, EventArgs e)
         {
-
+            var sitio = (Sitio)elemento.Item;
+            await Navigation.PushAsync(new Mapa(Double.Parse(sitio.Latitud), Double.Parse(sitio.Longitud), sitio.Descripcion)); // Abre el Page de Mapa
         }
 
         private void btnescucharaudio_Clicked(object sender, EventArgs e)
