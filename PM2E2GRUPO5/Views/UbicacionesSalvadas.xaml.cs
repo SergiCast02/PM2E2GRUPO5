@@ -46,7 +46,10 @@ namespace PM2E2GRUPO5.Views
 
         private void btnactualizar_Clicked(object sender, EventArgs e)
         {
-
+            var secondPage = new ModificarUbicacion();
+            var sitio = (Sitio)elemento.Item;
+            secondPage.BindingContext = new { sitio };
+            Navigation.PushAsync(secondPage);
         }
 
         private void btnvermapa_Clicked(object sender, EventArgs e)
