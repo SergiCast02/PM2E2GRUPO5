@@ -13,7 +13,7 @@ namespace PM2E2GRUPO5.Controllers
         private static readonly string URL_SITIOS = "https://pm2examen2.000webhostapp.com/apiexamen/";
         private static HttpClient client = new HttpClient();
 
-        public async Task<List<Sitio>> GetAllSite()
+        public static async Task<List<Sitio>> GetAllSite()
         {
             List<Sitio> listBooks = new List<Sitio>();
             try
