@@ -72,7 +72,7 @@ namespace PM2E2GRUPO5.Views
             pin.Position = new Position(_latitud, _longitud);
             mapa.Pins.Add(pin);
             mapa.IsShowingUser = true; //muestra la ubicacion del usuario en donde se encuentra
-            mapa.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(_latitud, _longitud), Distance.FromMeters(500.0)));
+            mapa.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(_latitud, _longitud), Distance.FromMeters(100.0)));
 
         }
 
