@@ -76,6 +76,21 @@ namespace PM2E2GRUPO5.Views
 
         }
 
+        private async void btndriving_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                var location = new Location(_latitud, _longitud);
+                var options = new MapLaunchOptions { NavigationMode = NavigationMode.Driving };
+
+                await Xamarin.Essentials.Map.OpenAsync(location, options);
+            }
+            catch (Exception error)
+            {
+                await DisplayAlert("Aviso", "Error: " + error, "OK");
+            }
+        }
+
         private async void btnvolver_Clicked(object sender, EventArgs e)
         {
             await Navigation.PopAsync();
